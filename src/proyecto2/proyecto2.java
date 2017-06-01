@@ -24,7 +24,6 @@ public class proyecto2 extends javax.swing.JFrame {
      */
     public proyecto2() {
 
-
         Action action;
         action = new AbstractAction(){
             @Override
@@ -38,7 +37,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 String cantidadS;
                 String valorS;
 
-                if( tcl.getOldValue() != tcl.getNewValue() ) {
+                if( tcl.getOldValue() != tcl.getNewValue() ) { // Si hay cambio
                     if ( tcl.getColumn() == 0 ) { // Cantidad
 
                         valorS = (String) jTable1.getValueAt(fila, 3);
@@ -66,16 +65,6 @@ public class proyecto2 extends javax.swing.JFrame {
 
                     }
                 }
-                // codigo + '|';
-                // descripcion + '|';
-                // costo + '|';
-                // precio + '|';
-                // tipo + '|';
-                // cantidad;
-                //System.out.println("Row   : " + tcl.getRow());
-                //System.out.println("Column: " + tcl.getColumn());
-                //System.out.println("Old   : " + tcl.getOldValue());
-                //System.out.println("New   : " + tcl.getNewValue());
 
             }
 
@@ -124,6 +113,8 @@ public class proyecto2 extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        generarPedido = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -227,30 +218,21 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        fPedidos.setMaximumSize(new java.awt.Dimension(530, 397));
-        fPedidos.setMinimumSize(new java.awt.Dimension(530, 397));
+        fPedidos.setMaximumSize(new java.awt.Dimension(530, 405));
+        fPedidos.setMinimumSize(new java.awt.Dimension(530, 405));
+        fPedidos.setResizable(false);
 
         jLabel8.setText("Pedidos");
 
         jLabel9.setText("Numero");
 
-        jTextField1.setText("jTextField1");
-
         jLabel10.setText("Nombre");
-
-        jTextField2.setText("jTextField2");
 
         jLabel11.setText("Dirección");
 
-        jTextField3.setText("jTextField3");
-
         jLabel12.setText("Teléfono");
 
-        jTextField4.setText("jTextField4");
-
         jLabel13.setText("NIT");
-
-        jTextField5.setText("jTextField5");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -290,6 +272,15 @@ public class proyecto2 extends javax.swing.JFrame {
         jTable1.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(jTable1);
 
+        generarPedido.setText("Generar pedido");
+        generarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarPedidoActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Regresar");
+
         javax.swing.GroupLayout fPedidosLayout = new javax.swing.GroupLayout(fPedidos.getContentPane());
         fPedidos.getContentPane().setLayout(fPedidosLayout);
         fPedidosLayout.setHorizontalGroup(
@@ -297,32 +288,36 @@ public class proyecto2 extends javax.swing.JFrame {
             .addGroup(fPedidosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fPedidosLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
-                        .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(fPedidosLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(fPedidosLayout.createSequentialGroup()
-                                .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3))))
-                        .addGap(76, 76, 76)))
+                        .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(18, 18, 18)
+                                .addComponent(generarPedido)))))
                 .addContainerGap())
         );
         fPedidosLayout.setVerticalGroup(
@@ -349,7 +344,11 @@ public class proyecto2 extends javax.swing.JFrame {
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generarPedido)
+                    .addComponent(jButton4))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -436,6 +435,39 @@ public class proyecto2 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void generarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPedidoActionPerformed
+
+        int registros = 0;
+        String[][] tabla = new String[10][2];
+        String codigo;
+        String cant;
+        String registro;
+        int pedido = 0;
+
+        for(int i = 0; i < 10; i++){
+            cant   = (String) jTable1.getValueAt(i,0);
+            codigo = (String) jTable1.getValueAt(i,1);
+            if ( ! "".equals(codigo) && (codigo != null) ) {
+                tabla[registros][0] = cant;
+                tabla[registros][1] = codigo;
+                registros++;
+            }
+        }
+
+        try {
+            BufferedWriter pedidoArch  = new BufferedWriter(new FileWriter("pedidoDetalle.txt",true));
+            for (int i = 0; i < registros; i++) {
+                registro = pedido+"|"+tabla[i][0]+"|"+tabla[i][1]+"\n";
+                pedidoArch.write(registro);
+            }
+            pedidoArch.flush();
+            pedidoArch.close();
+        } catch (IOException ex) {
+            // Nop
+        }
+
+    }//GEN-LAST:event_generarPedidoActionPerformed
+
 
 
     /**
@@ -478,8 +510,10 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JButton bGuardarMercaderia;
     private javax.swing.JFrame fArticulos;
     private javax.swing.JFrame fPedidos;
+    private javax.swing.JButton generarPedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
