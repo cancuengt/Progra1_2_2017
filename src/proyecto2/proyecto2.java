@@ -118,6 +118,10 @@ public class proyecto2 extends javax.swing.JFrame {
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        fArticulos.setMaximumSize(new java.awt.Dimension(396, 350));
+        fArticulos.setMinimumSize(new java.awt.Dimension(396, 350));
+        fArticulos.setPreferredSize(new java.awt.Dimension(396, 350));
+
         jLabel1.setText("Ingreso de mercaderia");
 
         jLabel2.setText("Codigo");
@@ -218,9 +222,9 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        fPedidos.setMaximumSize(new java.awt.Dimension(530, 450));
-        fPedidos.setMinimumSize(new java.awt.Dimension(530, 450));
-        fPedidos.setPreferredSize(new java.awt.Dimension(530, 450));
+        fPedidos.setMaximumSize(new java.awt.Dimension(560, 480));
+        fPedidos.setMinimumSize(new java.awt.Dimension(560, 480));
+        fPedidos.setPreferredSize(new java.awt.Dimension(560, 480));
 
         jLabel8.setText("Pedidos");
 
@@ -280,6 +284,11 @@ public class proyecto2 extends javax.swing.JFrame {
         });
 
         jButton4.setText("Regresar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fPedidosLayout = new javax.swing.GroupLayout(fPedidos.getContentPane());
         fPedidos.getContentPane().setLayout(fPedidosLayout);
@@ -489,6 +498,11 @@ public class proyecto2 extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_generarPedidoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        fPedidos.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
 
