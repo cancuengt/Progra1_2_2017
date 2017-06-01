@@ -222,9 +222,9 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        fPedidos.setMaximumSize(new java.awt.Dimension(560, 480));
-        fPedidos.setMinimumSize(new java.awt.Dimension(560, 480));
-        fPedidos.setPreferredSize(new java.awt.Dimension(560, 480));
+        fPedidos.setMaximumSize(new java.awt.Dimension(560, 475));
+        fPedidos.setMinimumSize(new java.awt.Dimension(560, 475));
+        fPedidos.setPreferredSize(new java.awt.Dimension(560, 475));
 
         jLabel8.setText("Pedidos");
 
