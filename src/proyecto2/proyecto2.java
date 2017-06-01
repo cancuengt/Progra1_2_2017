@@ -25,12 +25,53 @@ public class proyecto2 extends javax.swing.JFrame {
     public proyecto2() {
 
 
-        Action action = new AbstractAction(){
+        Action action;
+        action = new AbstractAction(){
+            @Override
             public void actionPerformed(ActionEvent e){
-                TableCellListener tcl = (TableCellListener)e.getSource();
-                if (tcl.getOldValue() != tcl.getNewValue()) {
 
+                TableCellListener tcl = (TableCellListener)e.getSource();
+                int cantidad;
+                int fila = tcl.getRow();
+                String[] registro = new String[6];
+                String linea;
+                String cantidadS;
+                String valorS;
+
+                if( tcl.getOldValue() != tcl.getNewValue() ) {
+                    if ( tcl.getColumn() == 0 ) { // Cantidad
+
+                        valorS = (String) jTable1.getValueAt(fila, 3);
+                        if ( ! "".equals(valorS) ) {
+                            cantidadS = (String) jTable1.getValueAt(fila,0);
+                            cantidad  = Integer.parseInt(cantidadS);
+                            jTable1.setValueAt(Double.parseDouble(valorS) * cantidad,0,4); // Total
+                        }
+
+                    } else if ( tcl.getColumn() == 1 ) { // Codigo de producto
+
+                        Producto producto = new Producto();
+                        cantidadS = (String) jTable1.getValueAt(fila,0);
+                        linea     = producto.buscarProducto((String) tcl.getNewValue());
+                        registro  = linea.split("\\|");
+                        jTable1.setValueAt(registro[1],0,2); // Producto nombre
+                        jTable1.setValueAt(registro[3],0,3); // Precio U
+                        if ( "".equals(cantidadS) || (cantidadS == null) ) {
+                            cantidad = 1;
+                            jTable1.setValueAt(String.valueOf(cantidad), fila, 0);
+                        } else {
+                            cantidad = Integer.parseInt(cantidadS);
+                        }
+                        jTable1.setValueAt(Double.parseDouble(registro[3]) * cantidad,0,4); // Total
+
+                    }
                 }
+                // codigo + '|';
+                // descripcion + '|';
+                // costo + '|';
+                // precio + '|';
+                // tipo + '|';
+                // cantidad;
                 //System.out.println("Row   : " + tcl.getRow());
                 //System.out.println("Column: " + tcl.getColumn());
                 //System.out.println("Old   : " + tcl.getOldValue());
@@ -186,6 +227,9 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        fPedidos.setMaximumSize(new java.awt.Dimension(530, 397));
+        fPedidos.setMinimumSize(new java.awt.Dimension(530, 397));
+
         jLabel8.setText("Pedidos");
 
         jLabel9.setText("Numero");
@@ -226,7 +270,7 @@ public class proyecto2 extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 true, true, false, false, false
@@ -360,15 +404,9 @@ public class proyecto2 extends javax.swing.JFrame {
         return 0;
     }
 
-    private String buscarMercaderia(String codigo){
-
-        return "";
-    }
-
-
     private void bGuardarMercaderiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarMercaderiaActionPerformed
         String registro;
-        producto nuevo = new producto();
+        Producto nuevo = new Producto();
         int resultado;
 
         resultado = nuevo.guardarMercaderia(
