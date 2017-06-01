@@ -8,11 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-public class producto {
+public class Producto {
 
     private String nombreArchivo;
 
-    public producto(){
+    public Producto(){
         this.nombreArchivo = "mercaderia.txt";
     }
 

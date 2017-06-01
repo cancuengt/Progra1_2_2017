@@ -104,13 +104,13 @@ public class proyecto2 extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tPnombre = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tPdireccion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tPtelefono = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tPnit = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         generarPedido = new javax.swing.JButton();
@@ -218,9 +218,9 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        fPedidos.setMaximumSize(new java.awt.Dimension(530, 405));
-        fPedidos.setMinimumSize(new java.awt.Dimension(530, 405));
-        fPedidos.setResizable(false);
+        fPedidos.setMaximumSize(new java.awt.Dimension(530, 450));
+        fPedidos.setMinimumSize(new java.awt.Dimension(530, 450));
+        fPedidos.setPreferredSize(new java.awt.Dimension(530, 450));
 
         jLabel8.setText("Pedidos");
 
@@ -300,16 +300,16 @@ public class proyecto2 extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)))
+                            .addComponent(tPdireccion)
+                            .addComponent(tPnombre)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tPtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tPnit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,17 +331,17 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tPnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tPdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tPtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tPnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -437,28 +437,50 @@ public class proyecto2 extends javax.swing.JFrame {
 
     private void generarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPedidoActionPerformed
 
-        int registros = 0;
-        String[][] tabla = new String[10][2];
         String codigo;
         String cant;
         String registro;
+        String linea;
         int pedido = 0;
+        BufferedReader pedidoArchR;
+        BufferedWriter pedidoArch;
 
-        for(int i = 0; i < 10; i++){
-            cant   = (String) jTable1.getValueAt(i,0);
-            codigo = (String) jTable1.getValueAt(i,1);
-            if ( ! "".equals(codigo) && (codigo != null) ) {
-                tabla[registros][0] = cant;
-                tabla[registros][1] = codigo;
-                registros++;
-            }
+        // Obtener correlativo del pedido
+        try{
+            pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
+            pedido = Integer.parseInt(pedidoArchR.readLine())+1;
+            pedidoArchR.close();
+            pedidoArch = new BufferedWriter(new FileWriter("pedidoNumero.txt"));  // Guarda el nuevo registro
+            pedidoArch.write(String.valueOf(pedido));
+            pedidoArch.flush();
+            pedidoArch.close();
+        } catch (FileNotFoundException ex) {
+            // Nop
+        } catch (IOException ex) {
+            // Nop
         }
 
+        // Encabezado del pedido
         try {
-            BufferedWriter pedidoArch  = new BufferedWriter(new FileWriter("pedidoDetalle.txt",true));
-            for (int i = 0; i < registros; i++) {
-                registro = pedido+"|"+tabla[i][0]+"|"+tabla[i][1]+"\n";
-                pedidoArch.write(registro);
+            pedidoArch  = new BufferedWriter(new FileWriter("pedidoEncabezado.txt",true));
+            registro = pedido+"|"+tPnombre.getText()+"|"+tPdireccion.getText()+"|"+tPtelefono.getText()+"|"+tPnit.getText();
+            pedidoArch.write(registro);
+            pedidoArch.flush();
+            pedidoArch.close();
+        } catch (IOException ex) {
+            // Nop
+        }
+
+        // Detalle del pedido
+        try {
+            pedidoArch  = new BufferedWriter(new FileWriter("pedidoDetalle.txt",true));
+            for(int i = 0; i < 10; i++){
+                cant   = (String) jTable1.getValueAt(i,0);
+                codigo = (String) jTable1.getValueAt(i,1);
+                if ( ! "".equals(codigo) && (codigo != null) ) {
+                    registro = pedido+"|"+cant+"|"+codigo+"\n";
+                    pedidoArch.write(registro);
+                }
             }
             pedidoArch.flush();
             pedidoArch.close();
@@ -530,16 +552,16 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField tACantidadM;
     private javax.swing.JTextField tACodigoM;
     private javax.swing.JTextField tACostoM;
     private javax.swing.JTextField tADescripcionM;
     private javax.swing.JTextField tAPrecioM;
     private javax.swing.JComboBox<String> tATipoM;
+    private javax.swing.JTextField tPdireccion;
+    private javax.swing.JTextField tPnit;
+    private javax.swing.JTextField tPnombre;
+    private javax.swing.JTextField tPtelefono;
     // End of variables declaration//GEN-END:variables
 }
 
