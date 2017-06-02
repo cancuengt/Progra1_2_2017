@@ -41,10 +41,10 @@ public class proyecto2 extends javax.swing.JFrame {
                     if ( tcl.getColumn() == 0 ) { // Cantidad
 
                         valorS = (String) jTable1.getValueAt(fila, 3);
-                        if ( ! "".equals(valorS) ) {
+                        if (valorS!=null ) {
                             cantidadS = (String) jTable1.getValueAt(fila,0);
                             cantidad  = Integer.parseInt(cantidadS);
-                            jTable1.setValueAt(Double.parseDouble(valorS) * cantidad,0,4); // Total
+                            jTable1.setValueAt(Double.parseDouble(valorS) * cantidad,fila,4); // Total
                         }
 
                     } else if ( tcl.getColumn() == 1 ) { // Codigo de producto
@@ -53,15 +53,15 @@ public class proyecto2 extends javax.swing.JFrame {
                         cantidadS = (String) jTable1.getValueAt(fila,0);
                         linea     = producto.buscarProducto((String) tcl.getNewValue());
                         registro  = linea.split("\\|");
-                        jTable1.setValueAt(registro[1],0,2); // Producto nombre
-                        jTable1.setValueAt(registro[3],0,3); // Precio U
+                        jTable1.setValueAt(registro[1],fila,2); // Producto nombre
+                        jTable1.setValueAt(registro[3],fila,3); // Precio U
                         if ( "".equals(cantidadS) || (cantidadS == null) ) {
                             cantidad = 1;
                             jTable1.setValueAt(String.valueOf(cantidad), fila, 0);
                         } else {
                             cantidad = Integer.parseInt(cantidadS);
                         }
-                        jTable1.setValueAt(Double.parseDouble(registro[3]) * cantidad,0,4); // Total
+                        jTable1.setValueAt(Double.toString(Double.parseDouble(registro[3]) * cantidad),fila,4); // Total
 
                     }
                 }
@@ -102,7 +102,6 @@ public class proyecto2 extends javax.swing.JFrame {
         fPedidos = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         tPnombre = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -115,6 +114,7 @@ public class proyecto2 extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         generarPedido = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        Labelnumpedido = new javax.swing.JLabel();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -137,6 +137,11 @@ public class proyecto2 extends javax.swing.JFrame {
         jLabel7.setText("Cantidad");
 
         tATipoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa dama", "Ropa caballero", "Ropa niños", "Accesorio deportivo", "Joyeria" }));
+        tATipoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tATipoMActionPerformed(evt);
+            }
+        });
 
         bGuardarMercaderia.setText("Guardar");
         bGuardarMercaderia.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +224,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGroup(fArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(bGuardarMercaderia))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         fPedidos.setMaximumSize(new java.awt.Dimension(560, 475));
@@ -258,16 +263,9 @@ public class proyecto2 extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                true, true, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
         });
         jTable1.setToolTipText("");
@@ -275,6 +273,9 @@ public class proyecto2 extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         generarPedido.setText("Generar pedido");
         generarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -290,6 +291,8 @@ public class proyecto2 extends javax.swing.JFrame {
             }
         });
 
+        Labelnumpedido.setText("num");
+
         javax.swing.GroupLayout fPedidosLayout = new javax.swing.GroupLayout(fPedidos.getContentPane());
         fPedidos.getContentPane().setLayout(fPedidosLayout);
         fPedidosLayout.setHorizontalGroup(
@@ -302,7 +305,8 @@ public class proyecto2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Labelnumpedido)
+                        .addGap(59, 59, 59))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
                         .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -320,7 +324,7 @@ public class proyecto2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tPnit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 30, Short.MAX_VALUE)
                         .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
@@ -336,7 +340,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Labelnumpedido))
                 .addGap(18, 18, 18)
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -357,7 +361,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generarPedido)
                     .addComponent(jButton4))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -441,12 +445,32 @@ public class proyecto2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         fPedidos.setVisible(true);
+        BufferedReader pedidoArchR;
+        int pedido=0;
+        String linea;
+        try{
+            pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
+            int c=0;
+            while((linea = pedidoArchR.readLine())!=null){
+                pedido = (Integer.parseInt(linea))+1;
+                c=1;
+            }
+            if(c==0){
+                pedido = 1;
+            }
+            pedidoArchR.close();
+        } catch (FileNotFoundException ex) {
+            // Nop
+        } catch (IOException ex) {
+            // Nop
+        }
+        Labelnumpedido.setText(Integer.toString(pedido));
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void generarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPedidoActionPerformed
 
-        String codigo;
+        String codigo, producto,preciou,total;
         String cant;
         String registro;
         String linea;
@@ -457,10 +481,18 @@ public class proyecto2 extends javax.swing.JFrame {
         // Obtener correlativo del pedido
         try{
             pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
-            pedido = Integer.parseInt(pedidoArchR.readLine())+1;
+            int c=0;
+            while((linea = pedidoArchR.readLine())!=null){
+                pedido = (Integer.parseInt(linea))+1;
+                c=1;
+            }
+            if(c==0){
+                pedido = 1;
+            }
             pedidoArchR.close();
-            pedidoArch = new BufferedWriter(new FileWriter("pedidoNumero.txt"));  // Guarda el nuevo registro
-            pedidoArch.write(String.valueOf(pedido));
+            pedidoArch = new BufferedWriter(new FileWriter("pedidoNumero.txt",true));  // Guarda el nuevo registro
+            pedidoArch.write(Integer.toString(pedido));
+            pedidoArch.newLine();
             pedidoArch.flush();
             pedidoArch.close();
         } catch (FileNotFoundException ex) {
@@ -474,6 +506,7 @@ public class proyecto2 extends javax.swing.JFrame {
             pedidoArch  = new BufferedWriter(new FileWriter("pedidoEncabezado.txt",true));
             registro = pedido+"|"+tPnombre.getText()+"|"+tPdireccion.getText()+"|"+tPtelefono.getText()+"|"+tPnit.getText();
             pedidoArch.write(registro);
+            pedidoArch.newLine();
             pedidoArch.flush();
             pedidoArch.close();
         } catch (IOException ex) {
@@ -486,9 +519,13 @@ public class proyecto2 extends javax.swing.JFrame {
             for(int i = 0; i < 10; i++){
                 cant   = (String) jTable1.getValueAt(i,0);
                 codigo = (String) jTable1.getValueAt(i,1);
+                producto = (String) jTable1.getValueAt(i,2);
+                preciou = (String) jTable1.getValueAt(i,3);
+                total = (String) jTable1.getValueAt(i,4);
                 if ( ! "".equals(codigo) && (codigo != null) ) {
-                    registro = pedido+"|"+cant+"|"+codigo+"\n";
+                    registro = pedido+"|"+cant+"|"+codigo+"|"+producto+"|"+preciou+"|"+total;
                     pedidoArch.write(registro);
+                    pedidoArch.newLine();
                 }
             }
             pedidoArch.flush();
@@ -503,6 +540,10 @@ public class proyecto2 extends javax.swing.JFrame {
         fPedidos.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tATipoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tATipoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tATipoMActionPerformed
 
 
 
@@ -542,6 +583,7 @@ public class proyecto2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Labelnumpedido;
     private javax.swing.JButton bArticulos;
     private javax.swing.JButton bGuardarMercaderia;
     private javax.swing.JFrame fArticulos;
@@ -565,7 +607,6 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField tACantidadM;
     private javax.swing.JTextField tACodigoM;
     private javax.swing.JTextField tACostoM;

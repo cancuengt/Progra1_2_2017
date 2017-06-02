@@ -52,7 +52,9 @@ public class Producto {
 
             try {
                 BufferedWriter mercaderia  = new BufferedWriter(new FileWriter(this.nombreArchivo,true));
+                
                 mercaderia.write(registro);
+                mercaderia.newLine();
                 mercaderia.flush();
                 mercaderia.close();
             } catch (IOException ex) {
