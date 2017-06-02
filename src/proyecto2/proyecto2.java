@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Timestamp;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
@@ -115,6 +116,8 @@ public class proyecto2 extends javax.swing.JFrame {
         generarPedido = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         Labelnumpedido = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        Spinnerfecha = new javax.swing.JSpinner();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -293,6 +296,10 @@ public class proyecto2 extends javax.swing.JFrame {
 
         Labelnumpedido.setText("num");
 
+        jLabel14.setText("Fecha de entrega:");
+
+        Spinnerfecha.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.DAY_OF_YEAR));
+
         javax.swing.GroupLayout fPedidosLayout = new javax.swing.GroupLayout(fPedidos.getContentPane());
         fPedidos.getContentPane().setLayout(fPedidosLayout);
         fPedidosLayout.setHorizontalGroup(
@@ -324,14 +331,16 @@ public class proyecto2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tPnit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
-                        .addGap(0, 30, Short.MAX_VALUE)
-                        .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(generarPedido)))))
-                .addContainerGap())
+                        .addGap(0, 42, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fPedidosLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Spinnerfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(generarPedido))))
         );
         fPedidosLayout.setVerticalGroup(
             fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +369,9 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generarPedido)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(jLabel14)
+                    .addComponent(Spinnerfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
@@ -468,6 +479,15 @@ public class proyecto2 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tATipoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tATipoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tATipoMActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        fPedidos.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void generarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPedidoActionPerformed
 
         String codigo, producto,preciou,total;
@@ -504,6 +524,7 @@ public class proyecto2 extends javax.swing.JFrame {
         // Encabezado del pedido
         try {
             pedidoArch  = new BufferedWriter(new FileWriter("pedidoEncabezado.txt",true));
+            Timestamp ts = new Timestamp((long) Spinnerfecha.getValue());
             registro = pedido+"|"+tPnombre.getText()+"|"+tPdireccion.getText()+"|"+tPtelefono.getText()+"|"+tPnit.getText();
             pedidoArch.write(registro);
             pedidoArch.newLine();
@@ -533,17 +554,7 @@ public class proyecto2 extends javax.swing.JFrame {
         } catch (IOException ex) {
             // Nop
         }
-
     }//GEN-LAST:event_generarPedidoActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        fPedidos.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void tATipoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tATipoMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tATipoMActionPerformed
 
 
 
@@ -584,6 +595,7 @@ public class proyecto2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Labelnumpedido;
+    private javax.swing.JSpinner Spinnerfecha;
     private javax.swing.JButton bArticulos;
     private javax.swing.JButton bGuardarMercaderia;
     private javax.swing.JFrame fArticulos;
@@ -597,6 +609,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
