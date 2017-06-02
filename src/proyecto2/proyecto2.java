@@ -13,6 +13,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
@@ -118,12 +120,25 @@ public class proyecto2 extends javax.swing.JFrame {
         Labelnumpedido = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         Spinnerfecha = new javax.swing.JSpinner();
+        fEntregas = new javax.swing.JFrame();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        tPedidoEntrega = new javax.swing.JTextField();
+        buscarPedidoEntrega = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        tIniciado = new javax.swing.JTextField();
+        tEnviado = new javax.swing.JTextField();
+        tEntregado = new javax.swing.JTextField();
+        bEnviar = new javax.swing.JButton();
+        bEntregar = new javax.swing.JButton();
+        bDevolucion = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        fArticulos.setMaximumSize(new java.awt.Dimension(396, 350));
         fArticulos.setMinimumSize(new java.awt.Dimension(396, 350));
-        fArticulos.setPreferredSize(new java.awt.Dimension(396, 350));
 
         jLabel1.setText("Ingreso de mercaderia");
 
@@ -375,6 +390,104 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
+        jLabel15.setText("Entregas");
+
+        jLabel16.setText("Pedido");
+
+        buscarPedidoEntrega.setText("Buscar");
+        buscarPedidoEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarPedidoEntregaActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Iniciado");
+
+        jLabel18.setText("Enviado");
+
+        jLabel19.setText("Engregado");
+
+        tIniciado.setEditable(false);
+
+        tEnviado.setEditable(false);
+
+        tEntregado.setEditable(false);
+
+        bEnviar.setText("Enviar");
+        bEnviar.setEnabled(false);
+
+        bEntregar.setText("Entregar");
+        bEntregar.setEnabled(false);
+
+        bDevolucion.setText("Devolucion");
+        bDevolucion.setEnabled(false);
+
+        jButton8.setText("Regresar");
+
+        javax.swing.GroupLayout fEntregasLayout = new javax.swing.GroupLayout(fEntregas.getContentPane());
+        fEntregas.getContentPane().setLayout(fEntregasLayout);
+        fEntregasLayout.setHorizontalGroup(
+            fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fEntregasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addGroup(fEntregasLayout.createSequentialGroup()
+                        .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tPedidoEntrega)
+                            .addComponent(tEnviado)
+                            .addComponent(tIniciado, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(tEntregado, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fEntregasLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(bEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(buscarPedidoEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+                            .addGroup(fEntregasLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(bEntregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bDevolucion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        fEntregasLayout.setVerticalGroup(
+            fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fEntregasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(tPedidoEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarPedidoEntrega))
+                .addGap(18, 18, 18)
+                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(tIniciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bEnviar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(tEnviado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bEntregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fEntregasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(tEntregado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bDevolucion))
+                .addGap(18, 18, 18)
+                .addComponent(jButton8)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bArticulos.setText("Mercadería");
@@ -501,18 +614,10 @@ public class proyecto2 extends javax.swing.JFrame {
         // Obtener correlativo del pedido
         try{
             pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
-            int c=0;
-            while((linea = pedidoArchR.readLine())!=null){
-                pedido = (Integer.parseInt(linea))+1;
-                c=1;
-            }
-            if(c==0){
-                pedido = 1;
-            }
+            pedido      = (Integer.parseInt(pedidoArchR.readLine()))+1;
             pedidoArchR.close();
-            pedidoArch = new BufferedWriter(new FileWriter("pedidoNumero.txt",true));  // Guarda el nuevo registro
+            pedidoArch  = new BufferedWriter(new FileWriter("pedidoNumero.txt"));  // Guarda el nuevo registro
             pedidoArch.write(Integer.toString(pedido));
-            pedidoArch.newLine();
             pedidoArch.flush();
             pedidoArch.close();
         } catch (FileNotFoundException ex) {
@@ -538,11 +643,11 @@ public class proyecto2 extends javax.swing.JFrame {
         try {
             pedidoArch  = new BufferedWriter(new FileWriter("pedidoDetalle.txt",true));
             for(int i = 0; i < 10; i++){
-                cant   = (String) jTable1.getValueAt(i,0);
-                codigo = (String) jTable1.getValueAt(i,1);
+                cant     = (String) jTable1.getValueAt(i,0);
+                codigo   = (String) jTable1.getValueAt(i,1);
                 producto = (String) jTable1.getValueAt(i,2);
-                preciou = (String) jTable1.getValueAt(i,3);
-                total = (String) jTable1.getValueAt(i,4);
+                preciou  = (String) jTable1.getValueAt(i,3);
+                total    = (String) jTable1.getValueAt(i,4);
                 if ( ! "".equals(codigo) && (codigo != null) ) {
                     registro = pedido+"|"+cant+"|"+codigo+"|"+producto+"|"+preciou+"|"+total;
                     pedidoArch.write(registro);
@@ -554,7 +659,76 @@ public class proyecto2 extends javax.swing.JFrame {
         } catch (IOException ex) {
             // Nop
         }
+
+        // Crear envio
+        try {
+            pedidoArch = new BufferedWriter(new FileWriter("envioDetalle.txt",true));
+            registro   = pedido+"|"+(new Date()).getTime() +"|iniciado";
+            pedidoArch.write(registro);
+            pedidoArch.newLine();
+            pedidoArch.flush();
+            pedidoArch.close();
+        } catch (IOException ex) {
+            // Nop
+        }
+
     }//GEN-LAST:event_generarPedidoActionPerformed
+
+    private void buscarPedidoEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPedidoEntregaActionPerformed
+        String linea;
+        String[] registro = new String[3];
+        String[] estado   = new String[3];
+        String pedido     = tPedidoEntrega.getText();
+        int posicion = 0;
+
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("envioDetalle.txt"));
+            while ( (linea = br.readLine() ) != null) {
+                registro = linea.split("\\|");
+                if( pedido.compareTo(registro[0]) == 0 ){
+                    SimpleDateFormat sdfecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    estado[posicion]         = sdfecha.format(new Date( Integer.parseInt(registro[1]) ));
+                    posicion++;
+                }
+            }
+            br.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "No se puede encontrar el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "No se puede leer el archivo");
+        }
+
+        switch (posicion) {
+            case 0:
+                JOptionPane.showMessageDialog(this, "No se encontró el pedido");
+                break;
+            case 1:
+                bEnviar.setEnabled(true);
+                bEntregar.setEnabled(false);
+                bDevolucion.setEnabled(false);
+                tIniciado.setText(estado[0]);
+                tEnviado.setText("");
+                tEntregado.setText("");
+                break;
+            case 2:
+                bEnviar.setEnabled(false);
+                bEntregar.setEnabled(true);
+                bDevolucion.setEnabled(false);
+                tIniciado.setText(estado[0]);
+                tEnviado.setText(estado[1]);
+                tEntregado.setText("");
+                break;
+            case 3:
+                bEnviar.setEnabled(false);
+                bEntregar.setEnabled(false);
+                bDevolucion.setEnabled(true);
+                tIniciado.setText(estado[0]);
+                tEnviado.setText(estado[1]);
+                tEntregado.setText(estado[2]);
+                break;
+        }
+
+    }//GEN-LAST:event_buscarPedidoEntregaActionPerformed
 
 
 
@@ -597,19 +771,30 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JLabel Labelnumpedido;
     private javax.swing.JSpinner Spinnerfecha;
     private javax.swing.JButton bArticulos;
+    private javax.swing.JButton bDevolucion;
+    private javax.swing.JButton bEntregar;
+    private javax.swing.JButton bEnviar;
     private javax.swing.JButton bGuardarMercaderia;
+    private javax.swing.JButton buscarPedidoEntrega;
     private javax.swing.JFrame fArticulos;
+    private javax.swing.JFrame fEntregas;
     private javax.swing.JFrame fPedidos;
     private javax.swing.JButton generarPedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -626,7 +811,11 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JTextField tADescripcionM;
     private javax.swing.JTextField tAPrecioM;
     private javax.swing.JComboBox<String> tATipoM;
+    private javax.swing.JTextField tEntregado;
+    private javax.swing.JTextField tEnviado;
+    private javax.swing.JTextField tIniciado;
     private javax.swing.JTextField tPdireccion;
+    private javax.swing.JTextField tPedidoEntrega;
     private javax.swing.JTextField tPnit;
     private javax.swing.JTextField tPnombre;
     private javax.swing.JTextField tPtelefono;
