@@ -135,6 +135,10 @@ public class proyecto2 extends javax.swing.JFrame {
         tEnviado = new javax.swing.JTextField();
         tEntregado = new javax.swing.JTextField();
         tPedidoEntrega = new javax.swing.JTextField();
+        fDevolucion = new javax.swing.JFrame();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        tDevolucionPedido = new javax.swing.JTextField();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -430,6 +434,11 @@ public class proyecto2 extends javax.swing.JFrame {
 
         bDevolucion.setText("Devolucion");
         bDevolucion.setEnabled(false);
+        bDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDevolucionActionPerformed(evt);
+            }
+        });
 
         fEntregasRegresar.setText("Regresar");
         fEntregasRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -502,6 +511,36 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(fEntregasRegresar)
                 .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jLabel20.setText("Devoluciones");
+
+        jLabel21.setText("Pedido");
+
+        javax.swing.GroupLayout fDevolucionLayout = new javax.swing.GroupLayout(fDevolucion.getContentPane());
+        fDevolucion.getContentPane().setLayout(fDevolucionLayout);
+        fDevolucionLayout.setHorizontalGroup(
+            fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fDevolucionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addGroup(fDevolucionLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tDevolucionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(197, Short.MAX_VALUE))
+        );
+        fDevolucionLayout.setVerticalGroup(
+            fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fDevolucionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(tDevolucionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -813,6 +852,12 @@ public class proyecto2 extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_bEntregarActionPerformed
 
+    private void bDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDevolucionActionPerformed
+        fEntregas.setVisible(false);
+        this.tDevolucionPedido.setText(tPedidoEntrega.getText());
+        fDevolucion.setVisible(true);
+    }//GEN-LAST:event_bDevolucionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -858,6 +903,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JButton bGuardarMercaderia;
     private javax.swing.JButton buscarPedidoEntrega;
     private javax.swing.JFrame fArticulos;
+    private javax.swing.JFrame fDevolucion;
     private javax.swing.JFrame fEntregas;
     private javax.swing.JButton fEntregasRegresar;
     private javax.swing.JFrame fPedidos;
@@ -878,6 +924,8 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -893,6 +941,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JTextField tADescripcionM;
     private javax.swing.JTextField tAPrecioM;
     private javax.swing.JComboBox<String> tATipoM;
+    private javax.swing.JTextField tDevolucionPedido;
     private javax.swing.JTextField tEntregado;
     private javax.swing.JTextField tEnviado;
     private javax.swing.JTextField tIniciado;
