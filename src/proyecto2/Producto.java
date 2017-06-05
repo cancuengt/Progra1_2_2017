@@ -20,6 +20,7 @@ public class Producto {
 
         String[] registro = new String[6];
         String linea;
+        boolean encontrado=false;
 
         try{
             BufferedReader br = new BufferedReader(new FileReader(this.nombreArchivo));
@@ -28,7 +29,10 @@ public class Producto {
                 if(codigo.compareTo(registro[0]) == 0){
                     return linea;
                 }
-            }
+            } 
+              if(encontrado==false){JOptionPane.showMessageDialog(null,"El codigo no se a podido encontar o no existe");
+                       //mensaje de error que no a encontrado el codigo
+               }
             br.close();
         } catch (FileNotFoundException ex) {
             // Nop

@@ -24,9 +24,9 @@ public class proyecto2 extends javax.swing.JFrame {
 
     /**
      * Creates new form proyecto2
-     */
+     */  
     public proyecto2() {
-
+       
         Action action;
         action = new AbstractAction(){
             @Override
@@ -75,6 +75,7 @@ public class proyecto2 extends javax.swing.JFrame {
 
         initComponents();
         TableCellListener tcl = new TableCellListener(jTable1, action);
+        this.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
 
     }
 
@@ -99,7 +100,7 @@ public class proyecto2 extends javax.swing.JFrame {
         tACostoM = new javax.swing.JTextField();
         tAPrecioM = new javax.swing.JTextField();
         tACantidadM = new javax.swing.JTextField();
-        tATipoM = new javax.swing.JComboBox<>();
+        tATipoM = new javax.swing.JComboBox<String>();
         bGuardarMercaderia = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         fPedidos = new javax.swing.JFrame();
@@ -159,7 +160,7 @@ public class proyecto2 extends javax.swing.JFrame {
 
         jLabel7.setText("Cantidad");
 
-        tATipoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa dama", "Ropa caballero", "Ropa niños", "Accesorio deportivo", "Joyeria" }));
+        tATipoM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ropa dama", "Ropa caballero", "Ropa niños", "Accesorio deportivo", "Joyeria" }));
         tATipoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tATipoMActionPerformed(evt);
@@ -250,9 +251,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
-        fPedidos.setMaximumSize(new java.awt.Dimension(560, 475));
         fPedidos.setMinimumSize(new java.awt.Dimension(560, 475));
-        fPedidos.setPreferredSize(new java.awt.Dimension(560, 475));
 
         jLabel8.setText("Pedidos");
 
@@ -395,9 +394,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        fEntregas.setMaximumSize(new java.awt.Dimension(450, 225));
         fEntregas.setMinimumSize(new java.awt.Dimension(450, 225));
-        fEntregas.setPreferredSize(new java.awt.Dimension(450, 225));
 
         jLabel15.setText("Entregas");
 
@@ -545,6 +542,7 @@ public class proyecto2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        bArticulos.setBackground(new java.awt.Color(255, 255, 255));
         bArticulos.setText("Mercadería");
         bArticulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,6 +550,7 @@ public class proyecto2 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Pedidos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -559,6 +558,7 @@ public class proyecto2 extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Entregas");
         jButton3.setToolTipText("");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -597,6 +597,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private void bArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bArticulosActionPerformed
         this.setVisible(false);
         fArticulos.setVisible(true);
+        fArticulos.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
     }//GEN-LAST:event_bArticulosActionPerformed
 
 
@@ -631,6 +632,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         fArticulos.setVisible(false);
         this.setVisible(true);
+        fArticulos.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -656,6 +658,7 @@ public class proyecto2 extends javax.swing.JFrame {
         }
         Labelnumpedido.setText(Integer.toString(pedido));
         this.setVisible(false);
+        fPedidos.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tATipoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tATipoMActionPerformed
@@ -799,6 +802,7 @@ public class proyecto2 extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
         fEntregas.setVisible(true);
+        fEntregas.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void fEntregasRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fEntregasRegresarActionPerformed
