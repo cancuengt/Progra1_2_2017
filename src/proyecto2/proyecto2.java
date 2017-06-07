@@ -24,9 +24,9 @@ public class proyecto2 extends javax.swing.JFrame {
 
     /**
      * Creates new form proyecto2
-     */  
+     */
     public proyecto2() {
-       
+
         Action action;
         action = new AbstractAction(){
             @Override
@@ -100,7 +100,7 @@ public class proyecto2 extends javax.swing.JFrame {
         tACostoM = new javax.swing.JTextField();
         tAPrecioM = new javax.swing.JTextField();
         tACantidadM = new javax.swing.JTextField();
-        tATipoM = new javax.swing.JComboBox<String>();
+        tATipoM = new javax.swing.JComboBox<>();
         bGuardarMercaderia = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         fPedidos = new javax.swing.JFrame();
@@ -140,6 +140,40 @@ public class proyecto2 extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         tDevolucionPedido = new javax.swing.JTextField();
+        tcod01 = new javax.swing.JTextField();
+        tcod02 = new javax.swing.JTextField();
+        tcod03 = new javax.swing.JTextField();
+        tcod04 = new javax.swing.JTextField();
+        tcod05 = new javax.swing.JTextField();
+        tcod06 = new javax.swing.JTextField();
+        tcod07 = new javax.swing.JTextField();
+        tcod08 = new javax.swing.JTextField();
+        tcod09 = new javax.swing.JTextField();
+        tdesc01 = new javax.swing.JTextField();
+        tdesc02 = new javax.swing.JTextField();
+        tdesc03 = new javax.swing.JTextField();
+        tdesc04 = new javax.swing.JTextField();
+        tdesc05 = new javax.swing.JTextField();
+        tdesc06 = new javax.swing.JTextField();
+        tdesc07 = new javax.swing.JTextField();
+        tdesc08 = new javax.swing.JTextField();
+        tdesc09 = new javax.swing.JTextField();
+        cret01 = new javax.swing.JCheckBox();
+        cret02 = new javax.swing.JCheckBox();
+        cret03 = new javax.swing.JCheckBox();
+        cret04 = new javax.swing.JCheckBox();
+        cret05 = new javax.swing.JCheckBox();
+        cret06 = new javax.swing.JCheckBox();
+        cret07 = new javax.swing.JCheckBox();
+        cret08 = new javax.swing.JCheckBox();
+        cret09 = new javax.swing.JCheckBox();
+        tcod10 = new javax.swing.JTextField();
+        cret10 = new javax.swing.JCheckBox();
+        tdesc10 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         bArticulos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -160,7 +194,7 @@ public class proyecto2 extends javax.swing.JFrame {
 
         jLabel7.setText("Cantidad");
 
-        tATipoM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ropa dama", "Ropa caballero", "Ropa niños", "Accesorio deportivo", "Joyeria" }));
+        tATipoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa dama", "Ropa caballero", "Ropa niños", "Accesorio deportivo", "Joyeria" }));
         tATipoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tATipoMActionPerformed(evt);
@@ -349,17 +383,17 @@ public class proyecto2 extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tPnit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fPedidosLayout.createSequentialGroup()
-                        .addGap(0, 42, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fPedidosLayout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Spinnerfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
-                        .addComponent(generarPedido))))
+                        .addComponent(generarPedido))
+                    .addGroup(fPedidosLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         fPedidosLayout.setVerticalGroup(
             fPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,6 +548,54 @@ public class proyecto2 extends javax.swing.JFrame {
 
         jLabel21.setText("Pedido");
 
+        tcod01.setEditable(false);
+
+        tcod02.setEditable(false);
+
+        tcod03.setEditable(false);
+
+        tcod04.setEditable(false);
+
+        tcod05.setEditable(false);
+
+        tcod06.setEditable(false);
+
+        tcod07.setEditable(false);
+
+        tcod08.setEditable(false);
+
+        tcod09.setEditable(false);
+
+        tdesc01.setEditable(false);
+
+        tdesc02.setEditable(false);
+
+        tdesc03.setEditable(false);
+
+        tdesc04.setEditable(false);
+
+        tdesc05.setEditable(false);
+
+        tdesc06.setEditable(false);
+
+        tdesc07.setEditable(false);
+
+        tdesc08.setEditable(false);
+
+        tdesc09.setEditable(false);
+
+        tcod10.setEditable(false);
+
+        tdesc10.setEditable(false);
+
+        jLabel22.setText("Codigo");
+
+        jLabel23.setText("Descripcion");
+
+        jButton5.setText("Generar devolución");
+
+        jButton6.setText("Regresar");
+
         javax.swing.GroupLayout fDevolucionLayout = new javax.swing.GroupLayout(fDevolucion.getContentPane());
         fDevolucion.getContentPane().setLayout(fDevolucionLayout);
         fDevolucionLayout.setHorizontalGroup(
@@ -525,8 +607,53 @@ public class proyecto2 extends javax.swing.JFrame {
                     .addGroup(fDevolucionLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tDevolucionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(197, Short.MAX_VALUE))
+                        .addComponent(tDevolucionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fDevolucionLayout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel23))
+                    .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(fDevolucionLayout.createSequentialGroup()
+                            .addComponent(jButton6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                            .addComponent(jButton5))
+                        .addGroup(fDevolucionLayout.createSequentialGroup()
+                            .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tcod10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                .addComponent(tcod09, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod08, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod07, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod06, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod05, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod04, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod03, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod02, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tcod01, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tdesc01)
+                                .addComponent(tdesc02)
+                                .addComponent(tdesc03)
+                                .addComponent(tdesc04)
+                                .addComponent(tdesc05)
+                                .addComponent(tdesc06)
+                                .addComponent(tdesc07)
+                                .addComponent(tdesc08)
+                                .addComponent(tdesc09)
+                                .addComponent(tdesc10, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cret01)
+                                .addComponent(cret02)
+                                .addComponent(cret03)
+                                .addComponent(cret04)
+                                .addComponent(cret05)
+                                .addComponent(cret06)
+                                .addComponent(cret07)
+                                .addComponent(cret08)
+                                .addComponent(cret09)
+                                .addComponent(cret10)))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         fDevolucionLayout.setVerticalGroup(
             fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,7 +664,65 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(tDevolucionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret01))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret02))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret03))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret04))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret05))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod06, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc06, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret06))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod07, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc07, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret07))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod08, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc08, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret08))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod09, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tdesc09, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret09))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tcod10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cret10)
+                    .addComponent(tdesc10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -672,7 +857,10 @@ public class proyecto2 extends javax.swing.JFrame {
 
     private void generarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPedidoActionPerformed
 
-        String codigo, producto,preciou,total;
+        String codigo;
+        String producto;
+        String preciou;
+        String total;
         String cant;
         String registro;
         String linea;
@@ -740,7 +928,9 @@ public class proyecto2 extends javax.swing.JFrame {
         } catch (IOException ex) {
             // Nop
         }
-
+        JOptionPane.showMessageDialog(rootPane, "El pedido se ha realizado con numero "+pedido);
+        fPedidos.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_generarPedidoActionPerformed
 
     private void buscarPedidoEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPedidoEntregaActionPerformed
@@ -857,8 +1047,81 @@ public class proyecto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_bEntregarActionPerformed
 
     private void bDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDevolucionActionPerformed
+        String linea;
+        String[] registro = new String[6];
+        String pedido = tPedidoEntrega.getText();
+        int numLinea = 1;
+
         fEntregas.setVisible(false);
-        this.tDevolucionPedido.setText(tPedidoEntrega.getText());
+        this.tDevolucionPedido.setText(pedido);
+
+        try{
+            BufferedReader pedidoArchR = new BufferedReader(new FileReader("pedidoDetalle.txt")); // Lee el archivo
+            while((linea = pedidoArchR.readLine())!=null){
+                registro = linea.split("\\|");
+                if( pedido.compareTo(registro[0]) == 0 ){
+                    switch( numLinea ){
+                        case 1:
+                            tcod01.setText(registro[2]);
+                            tdesc01.setText(registro[3]);
+                            cret01.setEnabled(true);
+                            break;
+                        case 2:
+                            tcod02.setText(registro[2]);
+                            tdesc02.setText(registro[3]);
+                            cret02.setEnabled(true);
+                            break;
+                        case 3:
+                            tcod03.setText(registro[2]);
+                            tdesc03.setText(registro[3]);
+                            cret03.setEnabled(true);
+                            break;
+                        case 4:
+                            tcod04.setText(registro[2]);
+                            tdesc04.setText(registro[3]);
+                            cret04.setEnabled(true);
+                            break;
+                        case 5:
+                            tcod05.setText(registro[2]);
+                            tdesc05.setText(registro[3]);
+                            cret06.setEnabled(true);
+                            break;
+                        case 6:
+                            tcod06.setText(registro[2]);
+                            tdesc06.setText(registro[3]);
+                            cret06.setEnabled(true);
+                            break;
+                        case 7:
+                            tcod07.setText(registro[2]);
+                            tdesc07.setText(registro[3]);
+                            cret07.setEnabled(true);
+                            break;
+                        case 8:
+                            tcod08.setText(registro[2]);
+                            tdesc08.setText(registro[3]);
+                            cret08.setEnabled(true);
+                            break;
+                        case 9:
+                            tcod09.setText(registro[2]);
+                            tdesc09.setText(registro[3]);
+                            cret09.setEnabled(true);
+                            break;
+                        case 10:
+                            tcod10.setText(registro[2]);
+                            tdesc10.setText(registro[3]);
+                            cret10.setEnabled(true);
+                            break;
+                    }
+                    numLinea++;
+                }
+            }
+            pedidoArchR.close();
+        } catch (FileNotFoundException ex) {
+            // Nop
+        } catch (IOException ex) {
+            // Nop
+        }
+
         fDevolucion.setVisible(true);
     }//GEN-LAST:event_bDevolucionActionPerformed
 
@@ -906,6 +1169,16 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JButton bEnviar;
     private javax.swing.JButton bGuardarMercaderia;
     private javax.swing.JButton buscarPedidoEntrega;
+    private javax.swing.JCheckBox cret01;
+    private javax.swing.JCheckBox cret02;
+    private javax.swing.JCheckBox cret03;
+    private javax.swing.JCheckBox cret04;
+    private javax.swing.JCheckBox cret05;
+    private javax.swing.JCheckBox cret06;
+    private javax.swing.JCheckBox cret07;
+    private javax.swing.JCheckBox cret08;
+    private javax.swing.JCheckBox cret09;
+    private javax.swing.JCheckBox cret10;
     private javax.swing.JFrame fArticulos;
     private javax.swing.JFrame fDevolucion;
     private javax.swing.JFrame fEntregas;
@@ -916,6 +1189,8 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -930,6 +1205,8 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -954,6 +1231,26 @@ public class proyecto2 extends javax.swing.JFrame {
     private javax.swing.JTextField tPnit;
     private javax.swing.JTextField tPnombre;
     private javax.swing.JTextField tPtelefono;
+    private javax.swing.JTextField tcod01;
+    private javax.swing.JTextField tcod02;
+    private javax.swing.JTextField tcod03;
+    private javax.swing.JTextField tcod04;
+    private javax.swing.JTextField tcod05;
+    private javax.swing.JTextField tcod06;
+    private javax.swing.JTextField tcod07;
+    private javax.swing.JTextField tcod08;
+    private javax.swing.JTextField tcod09;
+    private javax.swing.JTextField tcod10;
+    private javax.swing.JTextField tdesc01;
+    private javax.swing.JTextField tdesc02;
+    private javax.swing.JTextField tdesc03;
+    private javax.swing.JTextField tdesc04;
+    private javax.swing.JTextField tdesc05;
+    private javax.swing.JTextField tdesc06;
+    private javax.swing.JTextField tdesc07;
+    private javax.swing.JTextField tdesc08;
+    private javax.swing.JTextField tdesc09;
+    private javax.swing.JTextField tdesc10;
     // End of variables declaration//GEN-END:variables
 }
 

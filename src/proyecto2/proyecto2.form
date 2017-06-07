@@ -220,18 +220,18 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="tPnit" min="-2" pref="121" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Spinnerfecha" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="10" max="32767" attributes="0"/>
                           <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="generarPedido" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="506" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -588,8 +588,60 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tDevolucionPedido" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="145" max="32767" attributes="0"/>
+                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="tcod10" alignment="0" pref="81" max="32767" attributes="0"/>
+                                  <Component id="tcod09" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod08" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod07" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod06" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod05" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod04" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod03" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod02" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tcod01" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="tdesc01" max="32767" attributes="0"/>
+                                  <Component id="tdesc02" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc03" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc04" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc05" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc06" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc07" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc08" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc09" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdesc10" pref="300" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cret01" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret02" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret03" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret04" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret05" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret06" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret07" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret08" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret09" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cret10" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="197" max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -603,7 +655,77 @@
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tDevolucionPedido" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="242" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod01" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc01" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret01" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod02" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc02" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret02" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod03" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc03" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret03" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod04" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc04" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret04" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod05" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc05" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret05" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod06" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc06" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret06" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod07" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc07" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret07" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod08" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc08" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret08" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod09" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc09" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret09" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tcod10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cret10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="tdesc10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -620,6 +742,146 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tDevolucionPedido">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod01">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod02">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod03">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod04">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod05">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod06">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod07">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod08">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod09">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc01">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc02">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc03">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc04">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc05">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc06">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc07">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc08">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc09">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret01">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret02">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret03">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret04">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret05">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret06">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret07">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret08">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret09">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tcod10">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cret10">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tdesc10">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel22">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel23">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Descripcion"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Generar devoluci&#xf3;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
