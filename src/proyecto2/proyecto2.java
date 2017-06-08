@@ -714,10 +714,11 @@ public class proyecto2 extends javax.swing.JFrame {
                     .addComponent(tdesc09, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cret09))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tcod10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cret10)
-                    .addComponent(tdesc10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tcod10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tdesc10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
@@ -862,102 +863,39 @@ public class proyecto2 extends javax.swing.JFrame {
         String preciou;
         String total;
         String cant;
-        String registro;
-        String linea;
-        int pedido = 0;
-        BufferedReader pedidoArchR;
-        BufferedWriter pedidoArch;
+        Pedido pedido = new Pedido();
 
-        // Obtener correlativo del pedido
-        try{
-            pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
-            pedido      = (Integer.parseInt(pedidoArchR.readLine()))+1;
-            pedidoArchR.close();
-            pedidoArch  = new BufferedWriter(new FileWriter("pedidoNumero.txt"));  // Guarda el nuevo registro
-            pedidoArch.write(Integer.toString(pedido));
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (FileNotFoundException ex) {
-            // Nop
-        } catch (IOException ex) {
-            // Nop
-        }
-
-        // Encabezado del pedido
-        try {
-            pedidoArch  = new BufferedWriter(new FileWriter("pedidoEncabezado.txt",true));
-//            Timestamp ts = new Timestamp((long) Spinnerfecha.getValue());
-            registro = pedido+"|"+tPnombre.getText()+"|"+tPdireccion.getText()+"|"+tPtelefono.getText()+"|"+tPnit.getText();
-            pedidoArch.write(registro);
-            pedidoArch.newLine();
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (IOException ex) {
-            // Nop
-        }
-
-        // Detalle del pedido
-        try {
-            pedidoArch  = new BufferedWriter(new FileWriter("pedidoDetalle.txt",true));
-            for(int i = 0; i < 10; i++){
+        // Nuevo número de pedido
+        pedido.nuevoNumero();
+        // Obtener detalle
+        for(int i = 0; i < 10; i++){
+            codigo = (String) jTable1.getValueAt(i,1);
+            if ( ! "".equals(codigo) && (codigo != null) ) {
                 cant     = (String) jTable1.getValueAt(i,0);
-                codigo   = (String) jTable1.getValueAt(i,1);
                 producto = (String) jTable1.getValueAt(i,2);
                 preciou  = (String) jTable1.getValueAt(i,3);
                 total    = (String) jTable1.getValueAt(i,4);
-                if ( ! "".equals(codigo) && (codigo != null) ) {
-                    registro = pedido+"|"+cant+"|"+codigo+"|"+producto+"|"+preciou+"|"+total;
-                    pedidoArch.write(registro);
-                    pedidoArch.newLine();
-                }
+                pedido.agregarDetalle(cant, codigo, producto, preciou, total);
             }
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (IOException ex) {
-            // Nop
         }
+        pedido.guardarEncabezado(tPnombre.getText(),tPdireccion.getText(),tPtelefono.getText(),tPnit.getText());
+        pedido.guardarDetalle();
+        pedido.crearEnvio();
+        JOptionPane.showMessageDialog(rootPane, "El pedido se ha realizado con numero "+pedido.getNumero());
 
-        // Crear envio
-        try {
-            pedidoArch = new BufferedWriter(new FileWriter("envioDetalle.txt",true));
-            registro   = pedido+"|"+(new Date()).getTime() +"|iniciado";
-            pedidoArch.write(registro);
-            pedidoArch.newLine();
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (IOException ex) {
-            // Nop
-        }
-        JOptionPane.showMessageDialog(rootPane, "El pedido se ha realizado con numero "+pedido);
         fPedidos.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_generarPedidoActionPerformed
 
     private void buscarPedidoEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPedidoEntregaActionPerformed
-        String linea;
-        String[] registro = new String[3];
-        String[] estado   = new String[3];
-        String pedido     = tPedidoEntrega.getText();
-        int posicion = 0;
+        Pedido pedido = new Pedido();
+        pedido.setNumero(Integer.parseInt(tPedidoEntrega.getText()));
+        int estado = pedido.getEstadoEnvios();
 
-        try{
-            BufferedReader br = new BufferedReader(new FileReader("envioDetalle.txt"));
-            while ( (linea = br.readLine() ) != null) {
-                registro = linea.split("\\|");
-                if( pedido.compareTo(registro[0]) == 0 ){
-                    SimpleDateFormat sdfecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    estado[posicion]         = sdfecha.format(new Date( Long.parseLong(registro[1]) ));
-                    posicion++;
-                }
-            }
-            br.close();
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "No se puede encontrar el archivo");
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "No se puede leer el archivo");
-        }
-
-        switch (posicion) {
+        tIniciado.setText(pedido.getEstado(0));
+        tEnviado.setText(pedido.getEstado(1));
+        tEntregado.setText(pedido.getEstado(2));
+        switch (estado) {
             case 0:
                 JOptionPane.showMessageDialog(this, "No se encontró el pedido");
                 break;
@@ -965,25 +903,16 @@ public class proyecto2 extends javax.swing.JFrame {
                 bEnviar.setEnabled(true);
                 bEntregar.setEnabled(false);
                 bDevolucion.setEnabled(false);
-                tIniciado.setText(estado[0]);
-                tEnviado.setText("");
-                tEntregado.setText("");
                 break;
             case 2:
                 bEnviar.setEnabled(false);
                 bEntregar.setEnabled(true);
                 bDevolucion.setEnabled(false);
-                tIniciado.setText(estado[0]);
-                tEnviado.setText(estado[1]);
-                tEntregado.setText("");
                 break;
             case 3:
                 bEnviar.setEnabled(false);
                 bEntregar.setEnabled(false);
                 bDevolucion.setEnabled(true);
-                tIniciado.setText(estado[0]);
-                tEnviado.setText(estado[1]);
-                tEntregado.setText(estado[2]);
                 break;
         }
 
@@ -1001,21 +930,14 @@ public class proyecto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_fEntregasRegresarActionPerformed
 
     private void bEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarActionPerformed
-        String registro;
-        String pedido = tPedidoEntrega.getText();
-        try {
-            BufferedWriter pedidoArch = new BufferedWriter(new FileWriter("envioDetalle.txt",true));
-            registro   = pedido+"|"+(new Date()).getTime() +"|enviado";
-            pedidoArch.write(registro);
-            pedidoArch.newLine();
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (IOException ex) {
-            // Nop
-        }
+        Pedido pedido = new Pedido();
+        pedido.setNumero(Integer.parseInt(tPedidoEntrega.getText()));
+        pedido.modificarEnvio(2);
+
         bEnviar.setEnabled(false);
         bEntregar.setEnabled(false);
         bDevolucion.setEnabled(false);
+        tPedidoEntrega.setText("");
         tIniciado.setText("");
         tEnviado.setText("");
         tEntregado.setText("");
@@ -1024,21 +946,14 @@ public class proyecto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_bEnviarActionPerformed
 
     private void bEntregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntregarActionPerformed
-        String registro;
-        String pedido = tPedidoEntrega.getText();
-        try {
-            BufferedWriter pedidoArch = new BufferedWriter(new FileWriter("envioDetalle.txt",true));
-            registro   = pedido+"|"+(new Date()).getTime() +"|entregado";
-            pedidoArch.write(registro);
-            pedidoArch.newLine();
-            pedidoArch.flush();
-            pedidoArch.close();
-        } catch (IOException ex) {
-            // Nop
-        }
+        Pedido pedido = new Pedido();
+        pedido.setNumero(Integer.parseInt(tPedidoEntrega.getText()));
+        pedido.modificarEnvio(3);
+
         bEnviar.setEnabled(false);
         bEntregar.setEnabled(false);
         bDevolucion.setEnabled(false);
+        tPedidoEntrega.setText("");
         tIniciado.setText("");
         tEnviado.setText("");
         tEntregado.setText("");
