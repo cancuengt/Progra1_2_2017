@@ -544,6 +544,10 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
+        fDevolucion.setMaximumSize(new java.awt.Dimension(469, 450));
+        fDevolucion.setMinimumSize(new java.awt.Dimension(469, 450));
+        fDevolucion.setPreferredSize(new java.awt.Dimension(469, 450));
+
         jLabel20.setText("Devoluciones");
 
         jLabel21.setText("Pedido");
@@ -613,8 +617,18 @@ public class proyecto2 extends javax.swing.JFrame {
         jLabel23.setText("Descripcion");
 
         jButton5.setText("Generar devolución");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Regresar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fDevolucionLayout = new javax.swing.GroupLayout(fDevolucion.getContentPane());
         fDevolucion.getContentPane().setLayout(fDevolucionLayout);
@@ -673,7 +687,7 @@ public class proyecto2 extends javax.swing.JFrame {
                                 .addComponent(cret08)
                                 .addComponent(cret09)
                                 .addComponent(cret10)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         fDevolucionLayout.setVerticalGroup(
             fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,7 +757,7 @@ public class proyecto2 extends javax.swing.JFrame {
                 .addGroup(fDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -842,28 +856,10 @@ public class proyecto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        fPedidos.setVisible(true);
-        BufferedReader pedidoArchR;
-        int pedido=0;
-        String linea;
-        try{
-            pedidoArchR = new BufferedReader(new FileReader("pedidoNumero.txt")); // Lee el archivo
-            int c=0;
-            while((linea = pedidoArchR.readLine())!=null){
-                pedido = (Integer.parseInt(linea))+1;
-                c=1;
-            }
-            if(c==0){
-                pedido = 1;
-            }
-            pedidoArchR.close();
-        } catch (FileNotFoundException ex) {
-            // Nop
-        } catch (IOException ex) {
-            // Nop
-        }
-        Labelnumpedido.setText(Integer.toString(pedido));
+        Pedido pedido = new Pedido();
+        Labelnumpedido.setText(Integer.toString(pedido.siguienteNumero()));
         this.setVisible(false);
+        fPedidos.setVisible(true);
         fPedidos.setLocationRelativeTo(null);//coloca la ventana enmedio de la panatalla
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1047,6 +1043,58 @@ public class proyecto2 extends javax.swing.JFrame {
         this.tDevolucionPedido.setText(tPedidoEntrega.getText());
         fDevolucion.setVisible(true);
     }//GEN-LAST:event_bDevolucionActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        int[] devoluciones = new int[10];
+
+        // Verificar la selección de elementos a devolver
+        devoluciones[0] = cret01.isSelected()?1:0;
+        devoluciones[1] = cret02.isSelected()?1:0;
+        devoluciones[2] = cret03.isSelected()?1:0;
+        devoluciones[3] = cret04.isSelected()?1:0;
+        devoluciones[4] = cret05.isSelected()?1:0;
+        devoluciones[5] = cret06.isSelected()?1:0;
+        devoluciones[6] = cret07.isSelected()?1:0;
+        devoluciones[7] = cret08.isSelected()?1:0;
+        devoluciones[8] = cret09.isSelected()?1:0;
+        devoluciones[9] = cret10.isSelected()?1:0;
+
+        int total = 0;
+        for(int i = 0;i < devoluciones.length;i++){
+            total+=devoluciones[i];
+        }
+
+        if( total == 0 ){
+            JOptionPane.showMessageDialog(rootPane, "No se ha seleccionado nada para devolucion");
+        } else {
+            Pedido pedido = new Pedido();
+
+            // Obtener informacion del pedido anterior
+            pedido.setNumero(Integer.parseInt(tPedidoEntrega.getText()));
+            pedido.getDetalle();
+            pedido.getEncabezado();
+
+            // Ajustar nuevos datos de registro
+            pedido.nuevoDetalleDevolucion(devoluciones);
+
+            // Nuevo pedido
+            pedido.nuevoNumero();
+            pedido.guardarEncabezado(pedido.getEncabezadoPart(0),pedido.getEncabezadoPart(1),pedido.getEncabezadoPart(2),pedido.getEncabezadoPart(3));
+            pedido.guardarDetalle();
+            pedido.crearEnvio();
+            JOptionPane.showMessageDialog(rootPane, "El pedido se ha realizado con numero "+pedido.getNumero());
+
+            fDevolucion.setVisible(false);
+            this.setVisible(true);
+        }
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        fDevolucion.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
