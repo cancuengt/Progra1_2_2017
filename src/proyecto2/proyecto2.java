@@ -584,7 +584,27 @@ public class proyecto2 extends javax.swing.JFrame {
 
         tdesc09.setEditable(false);
 
+        cret01.setEnabled(false);
+
+        cret02.setEnabled(false);
+
+        cret03.setEnabled(false);
+
+        cret04.setEnabled(false);
+
+        cret05.setEnabled(false);
+
+        cret06.setEnabled(false);
+
+        cret07.setEnabled(false);
+
+        cret08.setEnabled(false);
+
+        cret09.setEnabled(false);
+
         tcod10.setEditable(false);
+
+        cret10.setEnabled(false);
 
         tdesc10.setEditable(false);
 
@@ -962,81 +982,69 @@ public class proyecto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_bEntregarActionPerformed
 
     private void bDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDevolucionActionPerformed
-        String linea;
-        String[] registro = new String[6];
-        String pedido = tPedidoEntrega.getText();
-        int numLinea = 1;
-
-        fEntregas.setVisible(false);
-        this.tDevolucionPedido.setText(pedido);
-
-        try{
-            BufferedReader pedidoArchR = new BufferedReader(new FileReader("pedidoDetalle.txt")); // Lee el archivo
-            while((linea = pedidoArchR.readLine())!=null){
-                registro = linea.split("\\|");
-                if( pedido.compareTo(registro[0]) == 0 ){
-                    switch( numLinea ){
-                        case 1:
-                            tcod01.setText(registro[2]);
-                            tdesc01.setText(registro[3]);
-                            cret01.setEnabled(true);
-                            break;
-                        case 2:
-                            tcod02.setText(registro[2]);
-                            tdesc02.setText(registro[3]);
-                            cret02.setEnabled(true);
-                            break;
-                        case 3:
-                            tcod03.setText(registro[2]);
-                            tdesc03.setText(registro[3]);
-                            cret03.setEnabled(true);
-                            break;
-                        case 4:
-                            tcod04.setText(registro[2]);
-                            tdesc04.setText(registro[3]);
-                            cret04.setEnabled(true);
-                            break;
-                        case 5:
-                            tcod05.setText(registro[2]);
-                            tdesc05.setText(registro[3]);
-                            cret06.setEnabled(true);
-                            break;
-                        case 6:
-                            tcod06.setText(registro[2]);
-                            tdesc06.setText(registro[3]);
-                            cret06.setEnabled(true);
-                            break;
-                        case 7:
-                            tcod07.setText(registro[2]);
-                            tdesc07.setText(registro[3]);
-                            cret07.setEnabled(true);
-                            break;
-                        case 8:
-                            tcod08.setText(registro[2]);
-                            tdesc08.setText(registro[3]);
-                            cret08.setEnabled(true);
-                            break;
-                        case 9:
-                            tcod09.setText(registro[2]);
-                            tdesc09.setText(registro[3]);
-                            cret09.setEnabled(true);
-                            break;
-                        case 10:
-                            tcod10.setText(registro[2]);
-                            tdesc10.setText(registro[3]);
-                            cret10.setEnabled(true);
-                            break;
-                    }
-                    numLinea++;
-                }
+        Pedido pedido = new Pedido();
+        pedido.setNumero(Integer.parseInt(tPedidoEntrega.getText()));
+        int registros = pedido.getDetalle();
+        String codigo;
+        String desc;
+        for(int i = 0; i < registros;i++){
+            codigo = pedido.getDetalleParte(i,2);
+            desc   = pedido.getDetalleParte(i,3);
+            switch( i+1 ){
+                case 1:
+                    tcod01.setText(codigo);
+                    tdesc01.setText(desc);
+                    cret01.setEnabled(true);
+                    break;
+                case 2:
+                    tcod02.setText(codigo);
+                    tdesc02.setText(desc);
+                    cret02.setEnabled(true);
+                    break;
+                case 3:
+                    tcod03.setText(codigo);
+                    tdesc03.setText(desc);
+                    cret03.setEnabled(true);
+                    break;
+                case 4:
+                    tcod04.setText(codigo);
+                    tdesc04.setText(desc);
+                    cret04.setEnabled(true);
+                    break;
+                case 5:
+                    tcod05.setText(codigo);
+                    tdesc05.setText(desc);
+                    cret06.setEnabled(true);
+                    break;
+                case 6:
+                    tcod06.setText(codigo);
+                    tdesc06.setText(desc);
+                    cret06.setEnabled(true);
+                    break;
+                case 7:
+                    tcod07.setText(codigo);
+                    tdesc07.setText(desc);
+                    cret07.setEnabled(true);
+                    break;
+                case 8:
+                    tcod08.setText(codigo);
+                    tdesc08.setText(desc);
+                    cret08.setEnabled(true);
+                    break;
+                case 9:
+                    tcod09.setText(codigo);
+                    tdesc09.setText(desc);
+                    cret09.setEnabled(true);
+                    break;
+                case 10:
+                    tcod10.setText(codigo);
+                    tdesc10.setText(desc);
+                    cret10.setEnabled(true);
+                    break;
             }
-            pedidoArchR.close();
-        } catch (FileNotFoundException ex) {
-            // Nop
-        } catch (IOException ex) {
-            // Nop
         }
-
+        fEntregas.setVisible(false);
+        this.tDevolucionPedido.setText(tPedidoEntrega.getText());
         fDevolucion.setVisible(true);
     }//GEN-LAST:event_bDevolucionActionPerformed
 
